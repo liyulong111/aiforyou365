@@ -4,56 +4,158 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AI For You 365</title>
-  <meta name="description" content="AI For You 365：教材3D互动模型、古诗词轻松记等学习资源。" />
+  <meta name="description" content="让知识更好玩，更好记。教材3D互动模型与古诗词图像化记忆。" />
   <style>
     :root{
-      --blue:#1565d8; --deep:#0b2f6b; --light:#eef6ff; --line:#d8e8fb;
-      --warm:#fff7ea; --text:#163052; --muted:#64748b;
+      --blue:#1769e0;
+      --blue-deep:#0b3b82;
+      --green:#168447;
+      --text:#17345c;
+      --muted:#6d7f96;
+      --line:#dce9f7;
+      --warm:#fff8ec;
+      --warm-line:#efd3a6;
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--text);background:#fff}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+      color:var(--text);
+      background:#fff;
+    }
     a{text-decoration:none;color:inherit}
-    .wrap{max-width:1200px;margin:auto;padding:0 24px}
-    header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid #eef2f7}
-    header .bar{height:72px;display:flex;align-items:center;justify-content:space-between}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:26px;color:var(--deep)}
-    .logo{width:42px;height:42px;border:3px solid var(--blue);border-radius:10px;display:grid;place-items:center;color:var(--blue);font-weight:900}
-    nav{display:flex;gap:28px;font-weight:700}
+    .wrap{max-width:1240px;margin:auto;padding:0 24px}
+
+    header{
+      position:sticky;top:0;z-index:20;
+      background:rgba(255,255,255,.94);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid #eef2f7;
+    }
+    .bar{min-height:62px;display:flex;justify-content:flex-end;align-items:center}
+    nav{display:flex;gap:30px;font-weight:750}
+    nav a{padding:20px 0}
     nav a:hover{color:var(--blue)}
-    .hero{padding:46px 0 22px;background:linear-gradient(180deg,#f7fbff 0,#fff 72%)}
-    .title{text-align:center}
-    .title h1{font-size:clamp(44px,7vw,84px);margin:0;letter-spacing:-2px;color:var(--deep)}
-    .title h1 span{color:#1779f5}
-    .title p{font-size:clamp(20px,3vw,34px);font-weight:800;margin:8px 0 0}
-    .grid{display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:24px;align-items:end;margin-top:28px}
-    .panel{border:1px solid var(--line);border-radius:24px;padding:24px;background:linear-gradient(180deg,#f6fbff,#edf6ff);box-shadow:0 12px 30px rgba(26,86,145,.08)}
-    .panel.warm{background:linear-gradient(180deg,#fffaf0,#fff4df);border-color:#f1d8b7}
-    .panel h2{font-size:28px;margin:0 0 8px;color:var(--deep)}
+
+    .hero{
+      min-height:calc(100vh - 62px);
+      background:
+        radial-gradient(circle at 50% 8%, rgba(53,145,255,.10), transparent 28%),
+        linear-gradient(180deg,#f8fbff 0%,#ffffff 76%);
+      overflow:hidden;
+    }
+    .title{text-align:center;padding:28px 0 8px}
+    .title h1{
+      margin:0;
+      font-size:clamp(46px,6vw,78px);
+      line-height:1.08;
+      letter-spacing:-2px;
+      font-weight:900;
+      color:var(--blue-deep);
+    }
+    .title h1 span{color:var(--green);margin-left:.25em}
+    .title p{margin:12px 0 0;color:#64758b;font-size:clamp(17px,2vw,22px)}
+
+    .main-grid{
+      display:grid;
+      grid-template-columns:minmax(300px,1fr) minmax(340px,.95fr) minmax(300px,1fr);
+      gap:26px;
+      align-items:center;
+      margin-top:8px;
+    }
+    .panel{
+      border:1px solid #cfe4f8;
+      border-radius:26px;
+      padding:26px;
+      background:linear-gradient(180deg,#f9fcff,#edf7ff);
+      box-shadow:0 14px 34px rgba(24,84,145,.08);
+    }
+    .panel.warm{
+      border-color:var(--warm-line);
+      background:linear-gradient(180deg,#fffaf3,var(--warm));
+    }
+    .panel h2{margin:0 0 7px;font-size:30px;color:var(--blue-deep)}
     .panel p{margin:0 0 18px;color:var(--muted)}
-    .links{display:grid;gap:12px}
-    .card{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid #dbe8f7;border-radius:16px;padding:15px 16px;font-weight:800;transition:.2s}
-    .card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(21,101,216,.12);border-color:#9cc8ff}
-    .person{display:flex;justify-content:center;align-items:flex-end}
-    .person img{width:min(100%,460px);max-height:520px;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 16px 22px rgba(0,0,0,.12))}
-    .coming{display:grid;place-items:center;min-height:260px;text-align:center;border:1px dashed #e7c695;border-radius:18px;background:rgba(255,255,255,.6)}
-    .coming strong{display:block;font-size:36px;color:#7d4d12;margin-bottom:8px}
-    .features{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:24px 0 44px}
-    .feature{background:#fff;border:1px solid #edf2f7;border-radius:16px;padding:18px;box-shadow:0 6px 18px rgba(15,23,42,.04)}
+
+    .links{display:grid;gap:13px}
+    .card{
+      min-height:62px;
+      display:flex;align-items:center;justify-content:space-between;
+      border:1px solid #d7e6f6;border-radius:17px;background:#fff;
+      padding:15px 18px;font-size:17px;font-weight:800;
+      transition:.18s ease;
+    }
+    .card:hover{
+      transform:translateY(-2px);
+      border-color:#83baf3;
+      color:var(--blue);
+      box-shadow:0 10px 22px rgba(23,105,224,.12);
+    }
+    .arrow{font-size:24px;font-weight:500}
+
+    .person{
+      min-height:510px;
+      display:flex;align-items:flex-end;justify-content:center;
+      position:relative;
+    }
+    .person:before{
+      content:"";position:absolute;left:6%;right:6%;bottom:10px;height:72%;
+      background:radial-gradient(ellipse at center,rgba(188,224,255,.7),rgba(255,255,255,0) 68%);
+      filter:blur(8px);
+    }
+    .person img{
+      position:relative;z-index:1;
+      width:min(118%,560px);
+      max-height:590px;
+      object-fit:contain;object-position:center bottom;
+      filter:drop-shadow(0 20px 28px rgba(0,0,0,.12));
+      -webkit-mask-image:radial-gradient(ellipse 72% 82% at 50% 49%,#000 61%,rgba(0,0,0,.97) 70%,rgba(0,0,0,.55) 85%,transparent 100%);
+      mask-image:radial-gradient(ellipse 72% 82% at 50% 49%,#000 61%,rgba(0,0,0,.97) 70%,rgba(0,0,0,.55) 85%,transparent 100%);
+    }
+
+    .coming{
+      min-height:300px;border:1px dashed #e3ba7d;border-radius:20px;
+      display:grid;place-items:center;text-align:center;
+      background:radial-gradient(circle at 76% 18%,rgba(255,204,112,.22),transparent 30%),rgba(255,255,255,.65);
+    }
+    .coming strong{display:block;font-size:38px;color:#8a5410;margin-bottom:8px}
+    .coming span{color:#8c7860}
+
+    .features{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+      padding:28px 0 42px;
+    }
+    .feature{border:1px solid #edf2f7;border-radius:17px;background:#fff;padding:18px;box-shadow:0 6px 18px rgba(15,23,42,.04)}
     .feature b{display:block;margin-bottom:5px}
     .feature span{color:var(--muted);font-size:14px}
-    footer{border-top:1px solid #edf2f7;background:#fafcff;padding:26px 0;text-align:center;color:#5b6b82}
-    footer b{color:var(--deep)}
-    @media(max-width:900px){
-      .grid{grid-template-columns:1fr}.person{order:-1}.person img{max-height:380px}.features{grid-template-columns:1fr 1fr}nav{display:none}
+
+    footer{border-top:1px solid #edf2f7;background:#fafcff;padding:22px 0;text-align:center;color:#748197}
+
+    @media(max-width:960px){
+      .main-grid{grid-template-columns:1fr}
+      .person{order:-1;min-height:380px}
+      .person img{max-height:440px;width:min(94%,460px)}
+      .features{grid-template-columns:1fr 1fr}
     }
-    @media(max-width:560px){.features{grid-template-columns:1fr}.wrap{padding:0 16px}.panel h2{font-size:24px}}
+    @media(max-width:620px){
+      .wrap{padding:0 16px}
+      nav{gap:15px;font-size:14px}
+      .title h1{letter-spacing:-1px}
+      .title h1 span{display:block;margin-left:0}
+      .features{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
 <header>
   <div class="wrap bar">
-    <div class="brand"><div class="logo">AI</div>AI For You 365</div>
-    <nav><a href="#top">首页</a><a href="#models">3D模型</a><a href="#poetry">古诗词轻松记</a><a href="#about">关于</a></nav>
+    <nav>
+      <a href="#top">首页</a>
+      <a href="#models">3D模型</a>
+      <a href="#poetry">古诗词轻松记</a>
+      <a href="#about">关于</a>
+    </nav>
   </div>
 </header>
 
@@ -61,46 +163,52 @@
   <section class="hero">
     <div class="wrap">
       <div class="title">
-        <h1><span>AI</span> For You 365</h1>
-        <p>让学习更直观、更轻松、更高效</p>
+        <h1>让知识更好玩<span>更好记</span></h1>
+        
       </div>
 
-      <div class="grid">
+      <div class="main-grid">
         <section class="panel" id="models">
           <h2>教材3D互动模型</h2>
           <p>把抽象知识变得看得见、摸得着</p>
           <div class="links">
-            <a class="card" href="3d/eye.html"><span>3D光学眼球模型</span><span>→</span></a>
-            <a class="card" href="3d/engine.html"><span>四冲程汽油发动机模型</span><span>→</span></a>
-            <a class="card" href="3d/heart.html"><span>心脏结构模型</span><span>→</span></a>
+            <a class="card" href="3d/eye.html" target="_blank" rel="noopener noreferrer">
+              <span>3D光学眼球模型</span><span class="arrow">→</span>
+            </a>
+            <a class="card" href="3d/engine.html" target="_blank" rel="noopener noreferrer">
+              <span>四冲程汽油发动机模型</span><span class="arrow">→</span>
+            </a>
+            <a class="card" href="3d/heart.html" target="_blank" rel="noopener noreferrer">
+              <span>心脏结构模型</span><span class="arrow">→</span>
+            </a>
           </div>
         </section>
 
-        <div class="person">
-          <img src="homepage-hero.png" alt="李玉龙老师卡通形象与首页视觉" />
+        <div class="person" aria-label="卡通人物指向两大学习板块">
+          <img src="teacher-cartoon.png" alt="卡通人物双手分别指向3D模型和古诗词板块">
         </div>
 
         <section class="panel warm" id="poetry">
-          <h2>轻松记住必背古诗词</h2>
-          <p>图像化记忆，帮助理解与背诵</p>
+          <h2>必背古诗词轻松记</h2>
+          <p>用图像化记忆，帮助理解与背诵</p>
           <div class="coming">
-            <div><strong>即将上线</strong><span>持续更新中</span></div>
+            <div>
+              <strong>即将上线</strong>
+              <span>古诗词图像记忆内容持续更新中</span>
+            </div>
           </div>
         </section>
       </div>
 
       <div class="features" id="about">
-        <div class="feature"><b>适合学生</b><span>让学习更有趣、更高效</span></div>
-        <div class="feature"><b>适合家长</b><span>陪伴孩子探索更广阔的世界</span></div>
-        <div class="feature"><b>适合老师</b><span>丰富教学资源，激发课堂活力</span></div>
-        <div class="feature"><b>AI赋能学习</b><span>用技术连接更好的教育</span></div>
+        <div class="feature"><b>适合学生</b><span>让知识更直观，也更容易记住</span></div>
+        <div class="feature"><b>适合家长</b><span>陪孩子探索更有趣的学习方式</span></div>
+        <div class="feature"><b>适合老师</b><span>增加课堂可视化与互动资源</span></div>
+        <div class="feature"><b>持续更新</b><span>3D模型、古诗词与更多学习资源</span></div>
       </div>
     </div>
   </section>
 </main>
-
-<footer>
-  <div class="wrap"><b>李玉龙老师 · AI赋能学习实验站</b><br/>用技术点亮教育 · 用知识成就未来</div>
-</footer>
+<footer><div class="wrap">让知识更好玩 · 让知识更好记</div></footer>
 </body>
 </html>
