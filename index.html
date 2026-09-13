@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI For You 365</title>
+  <meta name="description" content="AI For You 365：教材3D互动模型、古诗词轻松记等学习资源。" />
+  <style>
+    :root{
+      --blue:#1565d8; --deep:#0b2f6b; --light:#eef6ff; --line:#d8e8fb;
+      --warm:#fff7ea; --text:#163052; --muted:#64748b;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--text);background:#fff}
+    a{text-decoration:none;color:inherit}
+    .wrap{max-width:1200px;margin:auto;padding:0 24px}
+    header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid #eef2f7}
+    header .bar{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:26px;color:var(--deep)}
+    .logo{width:42px;height:42px;border:3px solid var(--blue);border-radius:10px;display:grid;place-items:center;color:var(--blue);font-weight:900}
+    nav{display:flex;gap:28px;font-weight:700}
+    nav a:hover{color:var(--blue)}
+    .hero{padding:46px 0 22px;background:linear-gradient(180deg,#f7fbff 0,#fff 72%)}
+    .title{text-align:center}
+    .title h1{font-size:clamp(44px,7vw,84px);margin:0;letter-spacing:-2px;color:var(--deep)}
+    .title h1 span{color:#1779f5}
+    .title p{font-size:clamp(20px,3vw,34px);font-weight:800;margin:8px 0 0}
+    .grid{display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:24px;align-items:end;margin-top:28px}
+    .panel{border:1px solid var(--line);border-radius:24px;padding:24px;background:linear-gradient(180deg,#f6fbff,#edf6ff);box-shadow:0 12px 30px rgba(26,86,145,.08)}
+    .panel.warm{background:linear-gradient(180deg,#fffaf0,#fff4df);border-color:#f1d8b7}
+    .panel h2{font-size:28px;margin:0 0 8px;color:var(--deep)}
+    .panel p{margin:0 0 18px;color:var(--muted)}
+    .links{display:grid;gap:12px}
+    .card{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid #dbe8f7;border-radius:16px;padding:15px 16px;font-weight:800;transition:.2s}
+    .card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(21,101,216,.12);border-color:#9cc8ff}
+    .person{display:flex;justify-content:center;align-items:flex-end}
+    .person img{width:min(100%,460px);max-height:520px;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 16px 22px rgba(0,0,0,.12))}
+    .coming{display:grid;place-items:center;min-height:260px;text-align:center;border:1px dashed #e7c695;border-radius:18px;background:rgba(255,255,255,.6)}
+    .coming strong{display:block;font-size:36px;color:#7d4d12;margin-bottom:8px}
+    .features{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:24px 0 44px}
+    .feature{background:#fff;border:1px solid #edf2f7;border-radius:16px;padding:18px;box-shadow:0 6px 18px rgba(15,23,42,.04)}
+    .feature b{display:block;margin-bottom:5px}
+    .feature span{color:var(--muted);font-size:14px}
+    footer{border-top:1px solid #edf2f7;background:#fafcff;padding:26px 0;text-align:center;color:#5b6b82}
+    footer b{color:var(--deep)}
+    @media(max-width:900px){
+      .grid{grid-template-columns:1fr}.person{order:-1}.person img{max-height:380px}.features{grid-template-columns:1fr 1fr}nav{display:none}
+    }
+    @media(max-width:560px){.features{grid-template-columns:1fr}.wrap{padding:0 16px}.panel h2{font-size:24px}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <div class="brand"><div class="logo">AI</div>AI For You 365</div>
+    <nav><a href="#top">首页</a><a href="#models">3D模型</a><a href="#poetry">古诗词轻松记</a><a href="#about">关于</a></nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="title">
+        <h1><span>AI</span> For You 365</h1>
+        <p>让学习更直观、更轻松、更高效</p>
+      </div>
+
+      <div class="grid">
+        <section class="panel" id="models">
+          <h2>教材3D互动模型</h2>
+          <p>把抽象知识变得看得见、摸得着</p>
+          <div class="links">
+            <a class="card" href="3d/eye.html"><span>3D光学眼球模型</span><span>→</span></a>
+            <a class="card" href="3d/engine.html"><span>四冲程汽油发动机模型</span><span>→</span></a>
+            <a class="card" href="3d/heart.html"><span>心脏结构模型</span><span>→</span></a>
+          </div>
+        </section>
+
+        <div class="person">
+          <img src="homepage-hero.png" alt="李玉龙老师卡通形象与首页视觉" />
+        </div>
+
+        <section class="panel warm" id="poetry">
+          <h2>轻松记住必背古诗词</h2>
+          <p>图像化记忆，帮助理解与背诵</p>
+          <div class="coming">
+            <div><strong>即将上线</strong><span>持续更新中</span></div>
+          </div>
+        </section>
+      </div>
+
+      <div class="features" id="about">
+        <div class="feature"><b>适合学生</b><span>让学习更有趣、更高效</span></div>
+        <div class="feature"><b>适合家长</b><span>陪伴孩子探索更广阔的世界</span></div>
+        <div class="feature"><b>适合老师</b><span>丰富教学资源，激发课堂活力</span></div>
+        <div class="feature"><b>AI赋能学习</b><span>用技术连接更好的教育</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><b>李玉龙老师 · AI赋能学习实验站</b><br/>用技术点亮教育 · 用知识成就未来</div>
+</footer>
+</body>
+</html>
